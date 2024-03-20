@@ -19,12 +19,12 @@ Each template will contain by default:
 
 ## Templates
 
-### Basic with flakes
+### Basic with flake
 
 This template will initialize the repo with a simple flake with a minimal devshell to run the CI.
 
 ```bash
-nix flake init -t github:brokenpip3/my-flake-templates#basic
+nix flake init -t github:brokenpip3/my-flake-templates#base
 ```
 
 ### Python Poetry
