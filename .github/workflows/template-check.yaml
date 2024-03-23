@@ -1,0 +1,29 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, ready_for_review, reopened]
+jobs:
+  matrix:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        flake: [base-with-flake, golang-gomod, python-poetry]
+    steps:
+    - uses: DeterminateSystems/nix-installer-action@v10
+      with:
+        diagnostic-endpoint: ""
+    - uses: DeterminateSystems/magic-nix-cache-action@v4
+      with:
+        diagnostic-endpoint: ""
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Init and check
+      env:
+        FLAKE: ${{ matrix.flake }}
+      run: |
+        mkdir test && cd test
+        nix flake init -t ../templates/${FLAKE}
+        nix flake check
