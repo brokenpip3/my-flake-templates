@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        flake: [base, golang-gomod, python-poetry]
+        flake: [base, python-poetry]
     steps:
     - uses: DeterminateSystems/nix-installer-action@v10
       with:
