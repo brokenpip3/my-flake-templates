@@ -25,6 +25,6 @@ jobs:
       env:
         FLAKE: ${{ matrix.flake }}
       run: |
-        mkdir test && cd test
+        mkdir tmp && cd tmp
         nix flake init -t ../#${FLAKE}
         nix flake check
