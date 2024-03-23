@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        flake: [base-with-flake, golang-gomod, python-poetry]
+        flake: [base, golang-gomod, python-poetry]
     steps:
     - uses: DeterminateSystems/nix-installer-action@v10
       with:
@@ -26,5 +26,5 @@ jobs:
         FLAKE: ${{ matrix.flake }}
       run: |
         mkdir test && cd test
-        nix flake init -t ../templates/${FLAKE}
+        nix flake init -t ../#${FLAKE}
         nix flake check
