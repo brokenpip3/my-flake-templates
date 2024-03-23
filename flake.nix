@@ -22,7 +22,8 @@
     templates.default = self.templates.base;
 
     devShells.x86_64-linux.default = nixpkgs.legacyPackages.x86_64-linux.mkShell {
-      buildInputs = [
+      packages = [
+        nixpkgs.legacyPackages.x86_64-linux.pre-commit
         (nixpkgs.legacyPackages.x86_64-linux.writeShellApplication {
           name = "update_templates";
           runtimeInputs = with nixpkgs.legacyPackages.x86_64-linux; [ bash coreutils ];
