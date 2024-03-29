@@ -2,7 +2,7 @@
   description = "Flake templates for creating new projects";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-23.11";
   };
 
   outputs = { self, nixpkgs, }: {
