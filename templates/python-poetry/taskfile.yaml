@@ -30,3 +30,8 @@ tasks:
     generates:
       - .git/hooks/pre-commit
     method: checksum
+
+  test:
+    desc: run pytest
+    cmds:
+      - pytest -v -s

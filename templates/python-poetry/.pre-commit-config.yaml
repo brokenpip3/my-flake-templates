@@ -11,3 +11,18 @@ repos:
     - id: check-dependabot
     - id: check-github-workflows
       args: ["--verbose"]
+
+- repo: https://github.com/asottile/reorder-python-imports
+  rev: v3.12.0
+  hooks:
+  -   id: reorder-python-imports
+
+- repo: local
+  hooks:
+  - id: pytest-check
+    name: pytest-check
+    types: [python]
+    files: ^jcli/
+    entry: pytest -v -s .
+    language: system
+    pass_filenames: false
