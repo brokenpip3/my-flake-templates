@@ -10,7 +10,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, flake-utils, poetry2nix }:
+  outputs = { self, nixpkgs, flake-utils, poetry2nix, ... }@inputs:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
@@ -34,6 +34,7 @@
             ruff
           ];
           PYTHONDONTWRITEBYTECODE = 1;
+          POETRY_VIRTUALENVS_IN_PROJECT = 1;
         };
       });
 }
