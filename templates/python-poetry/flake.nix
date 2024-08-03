@@ -30,6 +30,8 @@
           packages = with pkgs; [
             poetry
             python3
+            pre-commit
+            ruff
           ];
           PYTHONDONTWRITEBYTECODE = 1;
           POETRY_VIRTUALENVS_IN_PROJECT = 1;
