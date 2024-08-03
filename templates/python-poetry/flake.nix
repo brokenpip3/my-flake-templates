@@ -31,6 +31,8 @@
             poetry
             python3
           ];
+          PYTHONDONTWRITEBYTECODE = 1;
+          POETRY_VIRTUALENVS_IN_PROJECT = 1;
         };
       });
 }
