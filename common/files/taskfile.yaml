@@ -20,6 +20,12 @@ tasks:
       - nix flake lock --update-input {{.CLI_ARGS}}
     silent: true
 
+  clean-git:
+    desc: "clean git reflog"
+    cmds:
+      - git reflog expire --verbose --expire-unreachable=now --all
+      - git gc --prune=now
+
   pre-commit:
     desc: inizialize pre-commit
     cmds:
