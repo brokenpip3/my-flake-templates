@@ -1,6 +1,9 @@
 version: '3'
 
 tasks:
+
+  # Flake
+
   flake-check:
     desc: check whether the flake evaluates and run its tests
     cmds:
@@ -20,11 +23,15 @@ tasks:
       - nix flake lock --update-input {{.CLI_ARGS}}
     silent: true
 
+  # Git
+
   clean-git:
     desc: "clean git reflog"
     cmds:
       - git reflog expire --verbose --expire-unreachable=now --all
       - git gc --prune=now
+
+  # Pre-commit
 
   pre-commit:
     desc: inizialize pre-commit
@@ -36,3 +43,10 @@ tasks:
     generates:
       - .git/hooks/pre-commit
     method: checksum
+
+  # Test
+
+  tests:
+    desc: "all test"
+    cmds:
+      - echo 'test'

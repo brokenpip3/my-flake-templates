@@ -20,6 +20,18 @@ indent_size = 2
 indent_style = space
 indent_size = 2
 
+[*.py]
+indent_style = space
+indent_size = 2
+
+[*.bats]
+indent_style = space
+indent_size = 4
+
+[Makefile]
+indent_style = tab
+indent_size = 2
+
 # Match c++/shell/perl, set indent to spaces with width of four
 [*.{hpp,cc,hh,sh,pl,xs}]
 indent_style = space
