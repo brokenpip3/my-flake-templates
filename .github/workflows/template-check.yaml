@@ -13,7 +13,7 @@ jobs:
       matrix:
         flake: [base, python-poetry]
     steps:
-    - uses: DeterminateSystems/nix-installer-action@v15
+    - uses: DeterminateSystems/nix-installer-action@v16
       with:
         diagnostic-endpoint: ""
     - uses: DeterminateSystems/magic-nix-cache-action@v8
