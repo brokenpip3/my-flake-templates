@@ -1,15 +1,10 @@
 version: 2
 updates:
   - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "daily"
-    groups:
-      actions:
-        patterns:
-          - "*"
-  - package-ecosystem: "github-actions"
-    directory: "/common/files/.github/workflows"
+    directories:
+      - "/common/files/.github/workflows"
+      - "templates/**"
+      - "/"
     schedule:
       interval: "daily"
     groups:
