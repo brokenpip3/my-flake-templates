@@ -10,17 +10,15 @@ jobs:
     name: PreCommit
     runs-on: ubuntu-latest
     steps:
-    - uses: DeterminateSystems/nix-installer-action@v10
+    - uses: DeterminateSystems/nix-installer-action@de22e16c4711fca50c816cc9081563429d1cf563 # v10
       with:
         diagnostic-endpoint: ""
-    - uses: DeterminateSystems/magic-nix-cache-action@v4
+    - uses: DeterminateSystems/magic-nix-cache-action@fc6aaceb40b9845a02b91e059ec147e78d1b4e41 # v4
       with:
         diagnostic-endpoint: ""
     - name: Checkout
-      uses: actions/checkout@v4
-    - id: files
-      uses: tj-actions/changed-files@v43
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
     - name: nix checks
       run: nix flake check
     - name: nix pre-commit
-      run: nix develop . --command pre-commit run --files ${{ steps.files.outputs.all_changed_files }} --show-diff-on-failure
+      run: nix develop . --command pre-commit run --show-diff-on-failure
